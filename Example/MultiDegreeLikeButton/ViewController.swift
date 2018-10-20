@@ -14,6 +14,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let multiDegreeLikeButton = MultiDegreeLikeButton()
+        view.addSubview(multiDegreeLikeButton)
+        multiDegreeLikeButton.translatesAutoresizingMaskIntoConstraints = false
+        multiDegreeLikeButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        multiDegreeLikeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        multiDegreeLikeButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        multiDegreeLikeButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
 
     override func didReceiveMemoryWarning() {
