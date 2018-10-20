@@ -9,7 +9,7 @@
     "file": "LICENSE"
   },
   "authors": {
-    "RichGreenTea": "nukotsuka@gmail.com"
+    "nukotsuka": "nukotsuka@gmail.com"
   },
   "source": {
     "git": "https://github.com/RichGreenTea/MultiDegreeLikeButton.git",
@@ -18,5 +18,10 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "MultiDegreeLikeButton/Classes/**/*"
+  "source_files": "MultiDegreeLikeButton/Classes/**/*",
+  "resource_bundles": {
+    "MultiDegreeLikeButton": [
+      "MultiDegreeLikeButton/Assets/*.png"
+    ]
+  }
 }

@@ -24,7 +24,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/RichGreenTea/MultiDegreeLikeButton'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'RichGreenTea' => 'nukotsuka@gmail.com' }
+  s.author           = { 'nukotsuka' => 'nukotsuka@gmail.com' }
   s.source           = { :git => 'https://github.com/RichGreenTea/MultiDegreeLikeButton.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
@@ -32,9 +32,9 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'MultiDegreeLikeButton/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'MultiDegreeLikeButton' => ['MultiDegreeLikeButton/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'MultiDegreeLikeButton' => ['MultiDegreeLikeButton/Assets/*.png']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
