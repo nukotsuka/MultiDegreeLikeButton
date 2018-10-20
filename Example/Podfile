@@ -3,8 +3,4 @@ use_frameworks!
 target 'MultiDegreeLikeButton_Example' do
   pod 'MultiDegreeLikeButton', :path => '../'
 
-  target 'MultiDegreeLikeButton_Tests' do
-    inherit! :search_paths
-
-  end
 end

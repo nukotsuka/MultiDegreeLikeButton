@@ -28,13 +28,13 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/RichGreenTea/MultiDegreeLikeButton.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'MultiDegreeLikeButton/Classes/**/*'
-  
-  s.resource_bundles = {
-    'MultiDegreeLikeButton' => ['MultiDegreeLikeButton/Assets/*.png']
-  }
+  s.resources = 'MultiDegreeLikeButton/Assets/*.xcassets'
+  # s.resource_bundles = {
+  #   'MultiDegreeLikeButton' => ['MultiDegreeLikeButton/Assets/*.xcassets']
+  # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
