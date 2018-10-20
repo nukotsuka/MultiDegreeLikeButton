@@ -1,0 +1,6 @@
+framework module MultiDegreeLikeButton {
+  umbrella header "MultiDegreeLikeButton-umbrella.h"
+
+  export *
+  module * { export * }
+}
