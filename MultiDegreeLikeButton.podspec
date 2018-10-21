@@ -31,7 +31,7 @@ And if the button is 3D touched, it immediately expands.
   # s.social_media_url = 'https://twitter.com/nukotsuka'
 
   s.ios.deployment_target = '10.0'
-
+  s.swift_version = '4.0'
   s.source_files = 'MultiDegreeLikeButton/Classes/**/*'
   s.resources = 'MultiDegreeLikeButton/Assets/*.xcassets'
   # s.resource_bundles = {
