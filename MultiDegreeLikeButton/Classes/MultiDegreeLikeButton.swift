@@ -20,20 +20,30 @@ open class MultiDegreeLikeButton: UIView {
     
     private var tapStartedTime: Date?
     
+    /// if this value is false, completion is not called, but animation works. Default is true.
     open var isEnabled: Bool = true
     
+    /// the degree of like, and this value is used for expanding scale of the button. Default is 5.0 .
     open var likeDegree: Int = 5
     
+    /// the duration of expanding animation while tapping the button. Default is 2.0 .
     open var durationLongPress: Double = 2.0
     
+    /// the duration of expanding animation while 3D touching the button. Default is 0.1 .
     open var duration3DTouch: Double = 0.1
     
+    /// the duration of shrinking animation after end of tap. Default is 0.1 .
     open var durationShrink: Double = 0.1
     
+    /// the delay from the end of tap until shrinking starts. Default is 0.3 .
     open var delayBeforeShrink: Double = 0.3
 
+    /// the threshold at which 3D touch starts. Default is 4.0 .
     open var threshold3DTouch: CGFloat = 4.0
     
+    /// the callback function called after tap finishes.
+    /// Int argument indicates the degree of like based on the time the user was tapping.
+    /// And the range is from 1 to likeDegree.
     open var completionWithLikeDegree: ((MultiDegreeLikeButton, Int) -> Void)?
     
     public init(
