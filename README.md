@@ -5,12 +5,12 @@
 [![License](https://img.shields.io/cocoapods/l/MultiDegreeLikeButton.svg?style=flat)](https://cocoapods.org/pods/MultiDegreeLikeButton)
 [![Platform](https://img.shields.io/cocoapods/p/MultiDegreeLikeButton.svg?style=flat)](https://cocoapods.org/pods/MultiDegreeLikeButton)
 
-**MultiDegreeLikeButton** is a button which expresses the degree of like by changing the size of the button.
+**MultiDegreeLikeButton** is a "like button" which expresses the degree of like by changing the size.
 The button gradually expands while the user is tapping. And if the button is 3D touched, it immediately expands.
 
 |Long press|3D touch|
 |-|-|
-|<img src="https://user-images.githubusercontent.com/33661144/47262640-6504f800-d529-11e8-979b-57f389cff2e3.gif" width="300">|<img src="https://user-images.githubusercontent.com/33661144/47262641-67ffe880-d529-11e8-9516-8577419fc470.gif" width="300">|
+|<img src="https://user-images.githubusercontent.com/33661144/47263671-064b7880-d541-11e8-9ec0-3479838daeb5.gif" width="300">|<img src="https://user-images.githubusercontent.com/33661144/47263672-08153c00-d541-11e8-8505-b4025bd5cf71.gif" width="300">|
 
 
 ## Requirements
