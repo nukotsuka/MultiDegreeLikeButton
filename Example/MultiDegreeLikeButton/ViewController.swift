@@ -30,11 +30,11 @@ class ViewController: UIViewController {
         }
         view.addSubview(heartButton)
         heartButton.translatesAutoresizingMaskIntoConstraints = false
-        heartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -50).isActive = true
+        heartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
         heartButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         // Sample button whoes properties are customed
-        let starButton = MultiDegreeLikeButton(imageStyle: .star, size: 48)
+        let starButton = MultiDegreeLikeButton(imageStyle: .star, size: CGSize(width: 48, height: 48))
         starButton.likeDegree = 10
         starButton.durationLongPress = 5.0
         starButton.duration3DTouch = 0.5

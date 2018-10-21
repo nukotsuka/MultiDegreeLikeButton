@@ -12,7 +12,7 @@ open class MultiDegreeLikeButton: UIView {
     
     private let imageStyle: MultiDegreeLikeButtonImageStyle
     
-    private var size: CGFloat
+    private var size: CGSize
     
     private var tappedImage: UIImage?
     
@@ -36,7 +36,7 @@ open class MultiDegreeLikeButton: UIView {
     
     public init(
         imageStyle: MultiDegreeLikeButtonImageStyle,
-        size: CGFloat = 24
+        size: CGSize = CGSize(width: 24, height: 24)
     ) {
         self.imageStyle = imageStyle
         self.size = size
@@ -66,17 +66,16 @@ open class MultiDegreeLikeButton: UIView {
         tappedImage = resizedTappedImage
     }
     
-    private func resizeImage(image: UIImage, size: CGFloat) -> UIImage {
-        let canvasSize = CGSize(width: size, height: size)
-        UIGraphicsBeginImageContextWithOptions(canvasSize, false, 0.0)
-        image.draw(in: CGRect(origin: .zero, size: canvasSize))
+    private func resizeImage(image: UIImage, size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        image.draw(in: CGRect(origin: .zero, size: size))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return resizedImage!.withRenderingMode(image.renderingMode)
     }
     
     override open var intrinsicContentSize: CGSize {
-        return CGSize(width: size, height: size)
+        return size
     }
     
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
