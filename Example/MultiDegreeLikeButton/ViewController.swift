@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         }
         view.addSubview(heartButton)
         heartButton.translatesAutoresizingMaskIntoConstraints = false
-        heartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        heartButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -50).isActive = true
         heartButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         // Sample button whoes properties are customed
