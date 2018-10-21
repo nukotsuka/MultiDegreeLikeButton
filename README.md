@@ -1,6 +1,6 @@
 # MultiDegreeLikeButton
 
-[![CI Status](https://img.shields.io/travis/RichGreenTea/MultiDegreeLikeButton.svg?style=flat)](https://travis-ci.org/nukotsuka/MultiDegreeLikeButton)
+[![CI Status](https://img.shields.io/travis/nukotsuka/MultiDegreeLikeButton.svg?style=flat)](https://travis-ci.org/nukotsuka/MultiDegreeLikeButton)
 [![Version](https://img.shields.io/cocoapods/v/MultiDegreeLikeButton.svg?style=flat)](https://cocoapods.org/pods/MultiDegreeLikeButton)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](https://img.shields.io/cocoapods/l/MultiDegreeLikeButton.svg?style=flat)](https://cocoapods.org/pods/MultiDegreeLikeButton)

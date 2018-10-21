@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  MultiDegreeLikeButton
 //
-//  Created by RichGreenTea on 10/20/2018.
-//  Copyright (c) 2018 RichGreenTea. All rights reserved.
+//  Created by nukotsuka on 10/20/2018.
+//  Copyright (c) 2018 nukotsuka. All rights reserved.
 //
 
 import UIKit
