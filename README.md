@@ -53,6 +53,7 @@ smileButton.durationShrink = 0.5
 smileButton.delayBeforeShrink = 0.1
 smileButton.threshold3DTouch = 5.0
 smileButton.completion = { degree in
+    smileButton.isEnabled = false
     // do something
 }
 
@@ -60,13 +61,14 @@ view.addSubview(smileButton)
 ```
 
 **Properties**
+- `isEnabled: Bool`: if this value is false, `completion` is not called, but animation works.
 - `likeDegree: Int`: the degree of like, and this value is used for expanding scale of the button.
 - `durationLongPress: Double`: the duration of expanding animation while tapping the button.
 - `duration3DTouch: Double`: the duration of expanding animation while 3D touching the button.
 - `durationShrink: Double`: the duration of shrinking animation after end of tap.
 - `delayBeforeShrink: Double`: the delay from the end of tap until shrinking starts.
 - `threshold3DTouch: CGFloat`: the threshold at which 3D touch starts.
-- `completion: ((Int) -> Void)?`: the callback function called after tap finishes. `Int` argument indicates the degree of like based on the time the user was tapping and the range is from 1 to `likeDegree`. 
+- `completion: ((Int) -> Void)?`: the callback function called after tap finishes. `Int` argument indicates the degree of like based on the time the user was tapping, and the range is from 1 to `likeDegree`. 
 
 
 ## Author
