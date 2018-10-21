@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E085C8DDBAABA6A8862AB3CF89BB750 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 		2298348E6891C624F37EA255F2003E3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		3B4DF393217B2CAF00338EAD /* MultiDegreeLikeButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DF392217B2CAF00338EAD /* MultiDegreeLikeButtonStyle.swift */; };
 		4D0BED319B06FA5219FFE7BEE5F5AE68 /* Pods-MultiDegreeLikeButton_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB6B055688BE94B010CB7D3DB67256E /* Pods-MultiDegreeLikeButton_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7DF4C092859649680D71974BE129BA4 /* MultiDegreeLikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081C040703A44E2A38ED2746F71CFEBE /* MultiDegreeLikeButton.swift */; };
 		DBC296AF58D6556107FD658351374B84 /* MultiDegreeLikeButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B1717E7F4315B74D50B13CF5E48A5CCD /* MultiDegreeLikeButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,22 +34,23 @@
 		081C040703A44E2A38ED2746F71CFEBE /* MultiDegreeLikeButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultiDegreeLikeButton.swift; path = MultiDegreeLikeButton/Classes/MultiDegreeLikeButton.swift; sourceTree = "<group>"; };
 		0DB6B055688BE94B010CB7D3DB67256E /* Pods-MultiDegreeLikeButton_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MultiDegreeLikeButton_Example-umbrella.h"; sourceTree = "<group>"; };
 		0F740809BBBB20991F4A97C15AED1E61 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3E25B89939443A9628BA1D0E1E3C0D7F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		3B4DF392217B2CAF00338EAD /* MultiDegreeLikeButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiDegreeLikeButtonStyle.swift; sourceTree = "<group>"; };
+		3E25B89939443A9628BA1D0E1E3C0D7F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4134A57E0B730F0AF3365A5040E949BF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4969830A6DDB73927A177A316B6B7779 /* MultiDegreeLikeButton.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MultiDegreeLikeButton.modulemap; sourceTree = "<group>"; };
-		498EE4473B316B5F386C33D2E71D7F0A /* MultiDegreeLikeButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MultiDegreeLikeButton.framework; path = MultiDegreeLikeButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		498EE4473B316B5F386C33D2E71D7F0A /* MultiDegreeLikeButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiDegreeLikeButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5FA3DA3AFFAB2FBFB5E1C04324B91C99 /* Pods-MultiDegreeLikeButton_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MultiDegreeLikeButton_Example.release.xcconfig"; sourceTree = "<group>"; };
-		5FEB9F8B738869214E99B52B076A1D72 /* Pods_MultiDegreeLikeButton_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MultiDegreeLikeButton_Example.framework; path = "Pods-MultiDegreeLikeButton_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D7630BB3B63EC8B2F3BEC42EC8062D2 /* MultiDegreeLikeButton.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = MultiDegreeLikeButton.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5FEB9F8B738869214E99B52B076A1D72 /* Pods_MultiDegreeLikeButton_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiDegreeLikeButton_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D7630BB3B63EC8B2F3BEC42EC8062D2 /* MultiDegreeLikeButton.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = MultiDegreeLikeButton.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8C24A6EF6E4FF8BE8CAECCA276DE0477 /* MultiDegreeLikeButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiDegreeLikeButton-prefix.pch"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A9974B71349294C67CA2825C29276991 /* MultiDegreeLikeButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MultiDegreeLikeButton-dummy.m"; sourceTree = "<group>"; };
 		AE6CEB45817C53F17E18904A770663B4 /* MultiDegreeLikeButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MultiDegreeLikeButton.xcconfig; sourceTree = "<group>"; };
 		AFBCD1BE9B00DB86905B78659AAC7F7D /* Pods-MultiDegreeLikeButton_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MultiDegreeLikeButton_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B1717E7F4315B74D50B13CF5E48A5CCD /* MultiDegreeLikeButton-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiDegreeLikeButton-umbrella.h"; sourceTree = "<group>"; };
 		C0E6DFC24C7F003F917C9BE3707CC008 /* Pods-MultiDegreeLikeButton_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MultiDegreeLikeButton_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D245B41D4F0E7F9FACAF4D4FF6DBDCC1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		D245B41D4F0E7F9FACAF4D4FF6DBDCC1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D9E0931DB8256BCD2722F8C08F55C657 /* Pods-MultiDegreeLikeButton_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MultiDegreeLikeButton_Example-dummy.m"; sourceTree = "<group>"; };
 		EB156BFE708A1B6C47752085631CA879 /* Pods-MultiDegreeLikeButton_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiDegreeLikeButton_Example-frameworks.sh"; sourceTree = "<group>"; };
 		F08CC79AE40642775110422775064095 /* Pods-MultiDegreeLikeButton_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MultiDegreeLikeButton_Example.modulemap"; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				081C040703A44E2A38ED2746F71CFEBE /* MultiDegreeLikeButton.swift */,
+				3B4DF392217B2CAF00338EAD /* MultiDegreeLikeButtonStyle.swift */,
 				DD07F743F77484B317519851621F8B65 /* Pod */,
 				60B47DE8033A87FD5D1ED6109EDDAAC4 /* Resources */,
 				F39F97E198EAD6C2536884F45F1E281D /* Support Files */,
@@ -300,6 +303,7 @@
 			files = (
 				EA8A9E80676E86781921E81E922AF60E /* MultiDegreeLikeButton-dummy.m in Sources */,
 				D7DF4C092859649680D71974BE129BA4 /* MultiDegreeLikeButton.swift in Sources */,
+				3B4DF393217B2CAF00338EAD /* MultiDegreeLikeButtonStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,8 +352,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -455,8 +458,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";

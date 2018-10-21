@@ -1,102 +1,145 @@
 //
 //  MultiDegreeLikeButton.swift
-//  FBSnapshotTestCase
+//  MultiDegreeLikeButton
 //
-//  Created by 中塚貴大 on 2018/10/20.
+//  Created by nukotsuka on 2018/10/20.
 //
 
 import Foundation
 
-public class MultiDegreeLikeButton: UIView, UIGestureRecognizerDelegate {
-    let defaultButtonImage = UIImage(
-        named: "like_default",
-        in: Bundle(for: MultiDegreeLikeButton.self),
-        compatibleWith: nil
-    )
+open class MultiDegreeLikeButton: UIView {
+    private let likeImageView = UIImageView()
     
-    let tappedButtonImage = UIImage(
-        named: "like_tapped",
-        in: Bundle(for: MultiDegreeLikeButton.self),
-        compatibleWith: nil
-    )
+    private let imageStyle: MultiDegreeLikeButtonImageStyle
     
-    lazy var likeImageView = UIImageView(image: defaultButtonImage)
+    private var size: CGFloat
     
-    var likeImageOriginalSize: CGSize
+    private var tappedImage: UIImage?
     
-    var longPressStartTime: Date?
+    private var is3DTouched: Bool = false
     
-    var isTappped: Bool = false
+    private var tapStartedTime: Date?
     
-    var isLongPressing: Bool = false
+    open var likeDegree: Int = 5
+    
+    open var durationLongPress: Double = 2.0
+    
+    open var duration3DTouch: Double = 0.1
+    
+    open var durationShrink: Double = 0.1
+    
+    open var delayBeforeShrink: Double = 0.3
 
-    public init(defaultSize: CGSize = CGSize(width: 24, height: 24)) {
-        likeImageOriginalSize = defaultSize
+    open var threshold3DTouch: CGFloat = 4.0
+    
+    open var completion: ((Int) -> Void)?
+    
+    public init(
+        imageStyle: MultiDegreeLikeButtonImageStyle,
+        size: CGFloat = 24
+    ) {
+        self.imageStyle = imageStyle
+        self.size = size
         
         super.init(frame: .zero)
         
+        setupView()
+        setupImage()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    open func setupView() {
         backgroundColor = .clear
-        
-        setupGestures()
-        
         addSubview(likeImageView)
         likeImageView.translatesAutoresizingMaskIntoConstraints = false
         likeImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         likeImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    open func setupImage() {
+        let resizedDefaultImage = resizeImage(image: imageStyle.defaultImage, size: size)
+        let resizedTappedImage = resizeImage(image: imageStyle.tappedImage, size: size)
+        likeImageView.image = resizedDefaultImage
+        tappedImage = resizedTappedImage
     }
     
-    func setupGestures() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapped(_:)))
-        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(onLongPressed(_:)))
-        
-        tapGestureRecognizer.delegate = self
-        longPressGestureRecognizer.delegate = self
-        
-        addGestureRecognizer(tapGestureRecognizer)
-        addGestureRecognizer(longPressGestureRecognizer)
+    private func resizeImage(image: UIImage, size: CGFloat) -> UIImage {
+        let canvasSize = CGSize(width: size, height: size)
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, 0.0)
+        image.draw(in: CGRect(origin: .zero, size: canvasSize))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return resizedImage!.withRenderingMode(image.renderingMode)
     }
     
-    @objc func onTapped(_ sender: UITapGestureRecognizer) {
-        if isLongPressing { return }
-        isTappped.toggle()
-        likeImageView.image = isTappped ? tappedButtonImage : defaultButtonImage
+    override open var intrinsicContentSize: CGSize {
+        return CGSize(width: size, height: size)
     }
     
-    @objc func onLongPressed(_ sender: UITapGestureRecognizer) {
-        let aimationDuration = 1.0
-        let transformScale : CGFloat = 10
-        if sender.state == .began {
-            isLongPressing = true
-            likeImageView.image = tappedButtonImage
-            longPressStartTime = Date()
-            UIView.animate(withDuration: aimationDuration) { [weak self] in
-                self?.likeImageView.transform = CGAffineTransform(scaleX: transformScale, y: transformScale)
-            }
-        } else if sender.state == .ended {
-            let durationRatio = CGFloat(-longPressStartTime!.timeIntervalSinceNow / aimationDuration)
-            let currentScale = transformScale * durationRatio
-            if currentScale < transformScale {
-                UIView.animate(withDuration: 0.5) { [weak self] in
-                    self?.likeImageView.transform = CGAffineTransform(scaleX: currentScale, y: currentScale)
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        likeImageView.image = tappedImage
+        tapStartedTime = Date()
+    }
+    
+    override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if traitCollection.forceTouchCapability == .available {
+            guard let touchFource = touches.first?.force else { return }
+            if touchFource > threshold3DTouch {
+                if is3DTouched == false {
+                    let durationRatio = CGFloat(-tapStartedTime!.timeIntervalSinceNow / durationLongPress)
+                    let currentScale = min(max(CGFloat(likeDegree) * durationRatio, 1), CGFloat(likeDegree))
+                    likeImageView.transform = CGAffineTransform(scaleX: currentScale, y: currentScale)
+                    likeImageView.layer.removeAllAnimations()
                 }
+                is3DTouched = true
+                UIView.animate(withDuration: duration3DTouch, animations: { [weak self] in
+                    guard let `self` = self else { return }
+                    self.likeImageView.transform = CGAffineTransform(scaleX: CGFloat(self.likeDegree), y: CGFloat(self.likeDegree))
+                })
+            } else {
+                UIView.animate(withDuration: durationLongPress, animations: { [weak self] in
+                    guard let `self` = self else { return }
+                    self.likeImageView.transform = CGAffineTransform(scaleX: CGFloat(self.likeDegree), y: CGFloat(self.likeDegree))
+                })
             }
-            likeImageView.layer.removeAllAnimations()
-            UIView.animate(
-                withDuration: 0.1,
-                delay: 0.25,
-                options: [],
-                animations: { [weak self] in
-                    self?.likeImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
-                },
-                completion: { [weak self] _ in
-                    self?.isTappped = true
-                    self?.isLongPressing = false
-                }
-            )
+        } else {
+            UIView.animate(withDuration: durationLongPress, animations: { [weak self] in
+                guard let `self` = self else { return }
+                self.likeImageView.transform = CGAffineTransform(scaleX: CGFloat(self.likeDegree), y: CGFloat(self.likeDegree))
+            })
         }
+    }
+    
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        var touchDegree: Int
+        
+        if is3DTouched == false {
+            let durationRatio = CGFloat(-tapStartedTime!.timeIntervalSinceNow / durationLongPress)
+            let currentScale = min(max(CGFloat(likeDegree) * durationRatio, 1), CGFloat(likeDegree))
+            likeImageView.transform = CGAffineTransform(scaleX: currentScale, y: currentScale)
+            likeImageView.layer.removeAllAnimations()
+            touchDegree = Int(round(currentScale))
+        } else {
+            touchDegree = likeDegree
+        }
+        UIView.animate(
+            withDuration: durationShrink,
+            delay: delayBeforeShrink,
+            options: [],
+            animations: { [weak self] in
+                guard let `self` = self else { return }
+                self.likeImageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            },
+            completion: { [weak self] _ in
+                guard let `self` = self else { return }
+                self.is3DTouched = false
+                if let completion = self.completion {
+                    completion(touchDegree)
+                }
+            }
+        )
     }
 }
