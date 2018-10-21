@@ -17,7 +17,7 @@ The button gradually expands while the user is tapping. And if the button is 3D 
 
 - iOS 10.0+
 - Xcode 10.0+
-- Swift 4.2+
+- Swift 4.0+
 
 ## Installation
 
