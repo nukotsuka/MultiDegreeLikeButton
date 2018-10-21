@@ -10,7 +10,7 @@ The button gradually expands while the user is tapping. And if the button is 3D 
 
 |Long press|3D touch|
 |-|-|
-|<img src="https://user-images.githubusercontent.com/33661144/47263671-064b7880-d541-11e8-9ec0-3479838daeb5.gif" width="300">|<img src="https://user-images.githubusercontent.com/33661144/47263672-08153c00-d541-11e8-8505-b4025bd5cf71.gif" width="300">|
+|<img src="https://user-images.githubusercontent.com/33661144/47263807-a904f680-d543-11e8-8e9c-228953ece40d.gif" width="300">|<img src="https://user-images.githubusercontent.com/33661144/47263815-d5207780-d543-11e8-945b-5a874047b6b3.gif" width="300">|
 
 
 ## Requirements
