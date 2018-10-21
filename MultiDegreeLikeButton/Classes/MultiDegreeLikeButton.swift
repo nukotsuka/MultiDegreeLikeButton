@@ -5,7 +5,7 @@
 //  Created by nukotsuka on 2018/10/20.
 //
 
-import Foundation
+import UIKit
 
 open class MultiDegreeLikeButton: UIView {
     private let likeImageView = UIImageView()
@@ -34,7 +34,7 @@ open class MultiDegreeLikeButton: UIView {
 
     open var threshold3DTouch: CGFloat = 4.0
     
-    open var completion: ((Int) -> Void)?
+    open var completionWithLikeDegree: ((MultiDegreeLikeButton, Int) -> Void)?
     
     public init(
         imageStyle: MultiDegreeLikeButtonImageStyle,
@@ -73,7 +73,7 @@ open class MultiDegreeLikeButton: UIView {
         image.draw(in: CGRect(origin: .zero, size: size))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return resizedImage!.withRenderingMode(image.renderingMode)
+        return (resizedImage ?? undefined("resizedImage is not exist")).withRenderingMode(image.renderingMode)
     }
     
     override open var intrinsicContentSize: CGSize {
@@ -90,7 +90,7 @@ open class MultiDegreeLikeButton: UIView {
             guard let touchFource = touches.first?.force else { return }
             if touchFource > threshold3DTouch {
                 if is3DTouched == false {
-                    let durationRatio = CGFloat(-tapStartedTime!.timeIntervalSinceNow / durationLongPress)
+                    let durationRatio = CGFloat(-(tapStartedTime ?? undefined("tapStartedTime is not exist")).timeIntervalSinceNow / durationLongPress)
                     let currentScale = min(max(CGFloat(likeDegree) * durationRatio, 1), CGFloat(likeDegree))
                     likeImageView.transform = CGAffineTransform(scaleX: currentScale, y: currentScale)
                     likeImageView.layer.removeAllAnimations()
@@ -115,10 +115,10 @@ open class MultiDegreeLikeButton: UIView {
     }
     
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        var touchDegree: Int
+        let touchDegree: Int
         
         if is3DTouched == false {
-            let durationRatio = CGFloat(-tapStartedTime!.timeIntervalSinceNow / durationLongPress)
+            let durationRatio = CGFloat(-(tapStartedTime ?? undefined("tapStartedTime is not exist")).timeIntervalSinceNow / durationLongPress)
             let currentScale = min(max(CGFloat(likeDegree) * durationRatio, 1), CGFloat(likeDegree))
             likeImageView.transform = CGAffineTransform(scaleX: currentScale, y: currentScale)
             likeImageView.layer.removeAllAnimations()
@@ -137,8 +137,8 @@ open class MultiDegreeLikeButton: UIView {
             completion: { [weak self] _ in
                 guard let `self` = self else { return }
                 self.is3DTouched = false
-                if let completion = self.completion, self.isEnabled {
-                    completion(touchDegree)
+                if let completion = self.completionWithLikeDegree, self.isEnabled {
+                    completion(self, touchDegree)
                 }
             }
         )

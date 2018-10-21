@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         
         // Sample buttno whoes properties are default
         let heartButton = MultiDegreeLikeButton(imageStyle: .heart)
-        heartButton.completion = { degree in
+        heartButton.completionWithLikeDegree = { _, degree in
             degreeLabel.text = "Like degree: \(degree)/\(heartButton.likeDegree)"
         }
         view.addSubview(heartButton)
@@ -41,8 +41,8 @@ class ViewController: UIViewController {
         starButton.durationShrink = 0.5
         starButton.delayBeforeShrink = 0.1
         starButton.threshold3DTouch = 5.0
-        starButton.completion = { degree in
-            starButton.isEnabled = false
+        starButton.completionWithLikeDegree = { button, degree in
+            button.isEnabled = false
             degreeLabel.text = "Like degree: \(degree)/\(starButton.likeDegree)"
         }
         view.addSubview(starButton)
