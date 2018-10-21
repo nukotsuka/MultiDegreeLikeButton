@@ -34,7 +34,7 @@ pod 'MultiDegreeLikeButton'
 ### Carthage
 
 If you’re using [Carthage](https://github.com/Carthage/Carthage), simply add
-MisterFusion to your `Cartfile`:
+MultiDegreeLikeButton to your `Cartfile`:
 
 ```
 github 'nukotsuka/MultiDegreeLikeButton'
