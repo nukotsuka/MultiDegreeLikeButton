@@ -71,7 +71,7 @@ view.addSubview(smileButton)
 
 ## Author
 
-Twitter: [@nukotsuka](https://twitter.com/nukotsuka)
+nukotsuka, [@nukotsuka](https://twitter.com/nukotsuka)
 
 ## License
 
