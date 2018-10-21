@@ -53,7 +53,7 @@ open class MultiDegreeLikeButton: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    open func setupView() {
+    private func setupView() {
         backgroundColor = .clear
         addSubview(likeImageView)
         likeImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,7 +61,7 @@ open class MultiDegreeLikeButton: UIView {
         likeImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
     
-    open func setupImage() {
+    private func setupImage() {
         let resizedDefaultImage = resizeImage(image: imageStyle.defaultImage, size: size)
         let resizedTappedImage = resizeImage(image: imageStyle.tappedImage, size: size)
         likeImageView.image = resizedDefaultImage
