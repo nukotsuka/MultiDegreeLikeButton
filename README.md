@@ -32,7 +32,7 @@ pod 'MultiDegreeLikeButton'
 ### Basic
 ```swift
 let heartButton = MultiDegreeLikeButton(imageStyle: .heart)
-heartButton.completion = { degree in
+heartButton.completion = { _, degree in
     // do something
 }
 
@@ -52,8 +52,8 @@ smileButton.duration3DTouch = 0.5
 smileButton.durationShrink = 0.5
 smileButton.delayBeforeShrink = 0.1
 smileButton.threshold3DTouch = 5.0
-smileButton.completion = { degree in
-    smileButton.isEnabled = false
+smileButton.completion = { button, degree in
+    button.isEnabled = false
     // do something
 }
 
@@ -68,7 +68,7 @@ view.addSubview(smileButton)
 - `durationShrink: Double`: the duration of shrinking animation after end of tap.
 - `delayBeforeShrink: Double`: the delay from the end of tap until shrinking starts.
 - `threshold3DTouch: CGFloat`: the threshold at which 3D touch starts.
-- `completion: ((Int) -> Void)?`: the callback function called after tap finishes. `Int` argument indicates the degree of like based on the time the user was tapping, and the range is from 1 to `likeDegree`. 
+- `completionWithLikeDegree: ((MultiDegreeLikeButton, Int) -> Void)?`: the callback function called after tap finishes. `Int` argument indicates the degree of like based on the time the user was tapping, and the range is from 1 to `likeDegree`. 
 
 
 ## Author
