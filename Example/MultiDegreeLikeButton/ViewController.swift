@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         starButton.delayBeforeShrink = 0.1
         starButton.threshold3DTouch = 5.0
         starButton.completion = { degree in
+            starButton.isEnabled = false
             degreeLabel.text = "Like degree: \(degree)/\(starButton.likeDegree)"
         }
         view.addSubview(starButton)

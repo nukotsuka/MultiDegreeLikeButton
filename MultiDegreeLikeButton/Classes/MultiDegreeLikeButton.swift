@@ -20,6 +20,8 @@ open class MultiDegreeLikeButton: UIView {
     
     private var tapStartedTime: Date?
     
+    open var isEnabled: Bool = true
+    
     open var likeDegree: Int = 5
     
     open var durationLongPress: Double = 2.0
@@ -135,7 +137,7 @@ open class MultiDegreeLikeButton: UIView {
             completion: { [weak self] _ in
                 guard let `self` = self else { return }
                 self.is3DTouched = false
-                if let completion = self.completion {
+                if let completion = self.completion, self.isEnabled {
                     completion(touchDegree)
                 }
             }
